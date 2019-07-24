@@ -1,5 +1,6 @@
 import re
 import sys
+import collections
 
 
 def load_data(filepath):
@@ -8,17 +9,7 @@ def load_data(filepath):
 
 
 def get_most_frequent_words(text):
-    words_dict = {}
-    for word in text:
-        if word in words_dict.keys():
-            words_dict[word] += 1
-        else:
-            words_dict[word] = 1
-    return sorted(
-        words_dict.items(),
-        key=lambda value: value[1],
-        reverse=True
-    )
+    return dict(collections.Counter(text))
 
 
 if __name__ == '__main__':
@@ -26,8 +17,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         sys_arg = sys.argv[1]
         try:
-            for line in get_most_frequent_words(load_data(sys_arg)):
-                print(line)
+            print(get_most_frequent_words(load_data(sys_arg)))
         except FileNotFoundError:
             print('File "', sys_arg, '" not found.', sep='')
     else:
