@@ -1,15 +1,19 @@
 # Frequency Analysis of Words
 
-The module calculating most frequent words in present text file.
+This module calculate of 10 most frequency words in present text file.
 
 
 # Project description
 
-Method get_most_frequent_words(text) in the module return dict of most frequent words in descending order.
-
-For console using pass text file as argument.
+For using this module in command line.
+Pass the path to the file as an argument.
 For example like this:
-lang_frequency.py <text_file.txt>
+
+'''bash
+$ lang_frequency.py some_text_file.txt
+[('is', 5), ('and', 5), ('python', 4), ('it', 4), ('as', 3), ('on', 3), ('an', 2), ('language', 2), ('dynamic', 2), ('very', 2)]
+'''
+Module return 10 most frequency words in your file to stdout.
 
 
 # Project Goals

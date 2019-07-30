@@ -5,11 +5,13 @@ import collections
 
 def load_data(filepath):
     with open(filepath, encoding='utf-8') as file_handler:
-        return re.findall(r"[\w']+", file_handler.read().lower())
+        return file_handler.read()
 
 
-def get_most_frequent_words(text):
-    return dict(collections.Counter(text))
+def get_most_frequent_words(content):
+    return collections.Counter(
+        re.findall(r"[\w']+", content.lower())
+    ).most_common(10)
 
 
 if __name__ == '__main__':
